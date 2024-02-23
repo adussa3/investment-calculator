@@ -9,6 +9,7 @@ export default function UserInput({ inputName, inputValues, onChangeInput }) {
                 value={inputValues[inputName]}
                 onChange={(event) => onChangeInput(event, inputName)}
                 min="0"
+                required
             />
         </div>
     );
