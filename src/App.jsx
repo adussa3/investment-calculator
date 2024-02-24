@@ -18,6 +18,8 @@ function App() {
         setInputValues((prevInputValues) => ({ ...prevInputValues, [inputName]: event.target.value }));
     };
 
+    const isValidDuration = parseInt(inputValues[INPUT_NAMES[3]]) > 0;
+
     return (
         <>
             <Header />
@@ -28,7 +30,8 @@ function App() {
                 })}
             </div>
 
-            <Result inputValues={inputValues} />
+            {!isValidDuration && <h2 className="center">Please enter a positive duration</h2>}
+            {isValidDuration && <Result inputValues={inputValues} />}
         </>
     );
 }
