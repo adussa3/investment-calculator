@@ -1,4 +1,3 @@
-import { nanoid } from "nanoid";
 import { calculateInvestmentResults, formatter } from "../../util/investment";
 
 export default function Result({ inputValues }) {
@@ -24,16 +23,14 @@ export default function Result({ inputValues }) {
                 {annualData.map((datum) => {
                     const { year, interest, valueEndOfYear, annualInvestment } = datum;
                     const investedCapital = initialInvestment + year * annualInvestment;
-                    const totalInterst = valueEndOfYear - investedCapital;
-
-                    console.log(datum);
+                    const totalInterest = valueEndOfYear - investedCapital;
 
                     return (
-                        <tr key={nanoid()}>
+                        <tr key={year}>
                             <td>{year}</td>
                             <td>{formatter.format(valueEndOfYear)}</td>
                             <td>{formatter.format(interest)}</td>
-                            <td>{formatter.format(totalInterst)}</td>
+                            <td>{formatter.format(totalInterest)}</td>
                             <td>{formatter.format(investedCapital)}</td>
                         </tr>
                     );
